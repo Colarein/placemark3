@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "firstName": "Caroline",
+      "lastName": "Conway",
+      "email": "caroline@gmail.com",
+      "password": "secret",
+      "_id": "688b9d2e-8150-4c64-8f26-e59e5eea4fa5"
+    },
+    {
+      "firstName": "Wayne",
+      "lastName": "Twomey",
+      "email": "wayne@gmail.com",
+      "password": "secret",
+      "_id": "5568643c-3715-437a-8b68-d78687b20eba"
+    }
+  ]
+}
