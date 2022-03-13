@@ -1,0 +1,19 @@
+{
+  "placemarks": [
+    {
+      "userid": "688b9d2e-8150-4c64-8f26-e59e5eea4fa5",
+      "name": "Placemark 1",
+      "_id": "5b25ae1b-4a6c-42aa-81f1-54492b9fb9e0"
+    },
+    {
+      "userid": "688b9d2e-8150-4c64-8f26-e59e5eea4fa5",
+      "name": "Place mark 2: Electric Boogaloo",
+      "_id": "e5cddc65-404e-44b9-9182-551fd641ddab"
+    },
+    {
+      "userid": "5568643c-3715-437a-8b68-d78687b20eba",
+      "name": "Placemark3",
+      "_id": "2ba2493b-8e4d-4ec3-992f-23b1ae69c32d"
+    }
+  ]
+}

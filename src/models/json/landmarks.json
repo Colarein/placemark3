@@ -1,0 +1,39 @@
+{
+  "landmarks": [
+    {
+      "name": "c",
+      "category": "c",
+      "description": 0,
+      "_id": "bcb05e25-38fe-44e1-9695-801d160ae0a4",
+      "placemarkid": "84481a7e-99cc-42b1-9b08-16ca0a381833"
+    },
+    {
+      "name": "W",
+      "category": "W",
+      "description": 0,
+      "_id": "becaeef9-bc5a-417c-9d75-62c5d91cbbca",
+      "placemarkid": "a3a43e69-6d03-4c7b-a36e-d61075534306"
+    },
+    {
+      "name": "wdwd",
+      "category": "wdwwd",
+      "description": null,
+      "_id": "79242740-8d54-4479-9714-1f677e4195be",
+      "placemarkid": "23495ead-2d7d-457e-a58b-5d6115deed5f"
+    },
+    {
+      "name": "The west Gate ",
+      "category": "Medevil",
+      "description": null,
+      "_id": "d286bf9d-dc40-43d6-a982-20603c9cfa60",
+      "placemarkid": "5b25ae1b-4a6c-42aa-81f1-54492b9fb9e0"
+    },
+    {
+      "name": "Hello 'ello",
+      "category": "",
+      "description": "",
+      "_id": "f4e1fad2-a851-411f-ae40-2a843f9f3251",
+      "placemarkid": "2ba2493b-8e4d-4ec3-992f-23b1ae69c32d"
+    }
+  ]
+}
