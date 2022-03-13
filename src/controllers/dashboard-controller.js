@@ -4,31 +4,31 @@ export const dashboardController = {
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const playlists = await db.playlistStore.getUserPlaylists(loggedInUser._id);
+      const placemarks = await db.placemarkStore.getUserPlacemarks(loggedInUser._id);
       const viewData = {
-        title: "Playtime Dashboard",
+        title: "Placemark Dashboard",
         user: loggedInUser,
-        playlists: playlists,
+        placemarks: placemarks,
       };
       return h.view("dashboard-view", viewData);
     },
   },
 
-  addPlaylist: {
+  addPlacemark: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const newPlayList = {
+      const newPlacemark = {
         userid: loggedInUser._id,
-        title: request.payload.title,
+        name: request.payload.name,
       };
-      await db.playlistStore.addPlaylist(newPlayList);
+      await db.placemarkStore.addPlacemark(newPlacemark);
       return h.redirect("/dashboard");
     },
   },
-  deletePlaylist: {
+  deletePlacemark: {
     handler: async function (request, h) {
-      const playlist = await db.playlistStore.getPlaylistById(request.params.id);
-      await db.playlistStore.deletePlaylistById(playlist._id);
+      const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
+      await db.placemarkStore.deletePlacemarkById(placemark._id);
       return h.redirect("/dashboard");
     },
   },

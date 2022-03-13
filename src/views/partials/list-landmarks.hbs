@@ -1,26 +1,26 @@
 <table class="table is-fullwidth">
   <thead>
   <tr>
-    <th>Track</th>
-    <th>Artist</th>
-    <th>Duration</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Description</th>
     <th></th>
   </tr>
   </thead>
   <tbody>
-  {{#each playlist.tracks}}
+  {{#each placemark.landmarks}}
     <tr>
       <td>
-        {{title}}
+        {{name}}
       </td>
       <td>
-        {{artist}}
+        {{category}}
       </td>
       <td>
-        {{duration}}
+        {{description}}
       </td>
       <td>
-        <a href="/playlist/{{../playlist._id}}/deletetrack/{{_id}}" class="ui icon button">
+        <a href="/placemark/{{../placemark._id}}/deletelandmark/{{_id}}" class="ui icon button">
           <i class="fas fa-trash"></i>
         </a>
       </td>

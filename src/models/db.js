@@ -1,19 +1,19 @@
 // import { userMemStore } from "./mem/user-mem-store.js";
-// import { playlistMemStore } from "./mem/playlist-mem-store.js";
-// import { trackMemStore } from "./mem/track-mem-store.js";
+// import { placemarkMemStore } from "./mem/placemark-mem-store.js";
+// import { landmarkMemStore } from "./mem/landmark-mem-store.js";
 
 import { userJsonStore } from "./json/user-json-store.js";
-import { playlistJsonStore } from "./json/playlist-json-store.js";
-import { trackJsonStore } from "./json/track-json-store.js";
+import { placemarkJsonStore } from "./json/placemark-json-store.js";
+import { landmarkJsonStore } from "./json/landmark-json-store.js";
 
 export const db = {
   userStore: null,
-  playlistStore: null,
-  trackStore: null,
+  placemarkStore: null,
+  landmarkStore: null,
 
   init() {
     this.userStore = userJsonStore;
-    this.playlistStore = playlistJsonStore;
-    this.trackStore = trackJsonStore;
+    this.placemarkStore = placemarkJsonStore;
+    this.landmarkStore = landmarkJsonStore;
   },
 };
