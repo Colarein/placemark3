@@ -1,4 +1,5 @@
 import { db } from "../models/db.js";
+import { LandmarkSpec } from "../models/joi-schemas.js";
 
 export const placemarkController = {
   index: {
@@ -13,6 +14,13 @@ export const placemarkController = {
   },
 
   addLandmark: {
+    validate: {
+      payload: LandmarkSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("placemark-view", { title: "Add landmark error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
       const newLandmark = {
@@ -24,6 +32,7 @@ export const placemarkController = {
       return h.redirect(`/placemark/${placemark._id}`);
     },
   },
+
   deleteLandmark: {
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);

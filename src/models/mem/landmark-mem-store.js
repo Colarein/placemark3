@@ -10,11 +10,11 @@ export const landmarkMemStore = {
   async addLandmark(placemarkId, landmark) {
     landmark._id = v4();
     landmark.placemarkid = placemarkId;
-    landmark.push(landmark);
+    landmarks.push(landmark);
     return landmark;
   },
 
-  async getTracksByPlacemarkId(id) {
+  async getLandmarksByPlacemarkId(id) {
     return landmarks.filter((landmark) => landmark.placemarkid === id);
   },
 
@@ -22,7 +22,7 @@ export const landmarkMemStore = {
     return landmarks.find((landmark) => landmark._id === id);
   },
 
-  async getPlacemarkLandmark(placemarkId) {
+  async getPlacemarkLandmarks(placemarkId) {
     return landmarks.filter((landmark) => landmark.placemarkid === placemarkId);
   },
 
