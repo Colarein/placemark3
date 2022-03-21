@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "lint": "./node_modules/.bin/eslint . --ext .js"
+    "lint": "./node_modules/.bin/eslint . --ext .js",
+    "test": "./node_modules/mocha/bin/mocha --ui tdd test/**/*.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,11 +28,7 @@
     "handlebars": "^4.7.7",
     "joi": "^17.6.0",
     "lowdb": "^3.0.0",
+    "mongoose": "^6.2.6",
     "uuid": "^8.3.2"
-  },
-  "scripts": {
-    "start": "node src/server.js",
-    "lint": "./node_modules/.bin/eslint . --ext .js",
-    "test": "./node_modules/mocha/bin/mocha --ui tdd test/**.js"
   }
 }

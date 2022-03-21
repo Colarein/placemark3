@@ -1,20 +1,3 @@
 {
-  "placemarks": [
-    {
-      "name": "University College of Cork",
-      "_id": "72171b0f-9dce-46c7-80e0-7d59dc870383"
-    },
-    {
-      "name": "Munster Technical University",
-      "_id": "2aeb2d27-81c1-4000-84ca-fde01c9372a3"
-    },
-    {
-      "name": "Cork College Of Commerce",
-      "_id": "494e783d-ab08-4492-a95f-27777fe510d7"
-    },
-    {
-      "name": "St. Johns College Of Further Education",
-      "_id": "e139d5fc-5533-4da2-ba1e-9dbbd618cd9f"
-    }
-  ]
+  "placemarks": []
 }

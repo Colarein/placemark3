@@ -1,10 +1,11 @@
 import { assert } from "chai";
-import { db } from "../src/models/db.js";
-import { testPlacemarks, cork } from "./fixtures.js";
+import { db } from "../../src/models/db.js";
+import { testPlacemarks, corkPlacemark } from "../fixtures.js";
+import { assertSubset } from "../test-utils.js";
 
 suite("Placemark Model tests", () => {
   setup(async () => {
-    db.init("json");
+    db.init("mongo");
     await db.placemarkStore.deleteAllPlacemarks();
     for (let i = 0; i < testPlacemarks.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
@@ -13,23 +14,23 @@ suite("Placemark Model tests", () => {
   });
 
   test("create a placemark", async () => {
-    const placemark = await db.placemarkStore.addPlacemark(cork);
-    assert.equal(cork, placemark);
+    const placemark = await db.placemarkStore.addPlacemark(corkPlacemark);
+    assertSubset(corkPlacemark, placemark);
     assert.isDefined(placemark._id);
   });
 
   test("delete all placemarks", async () => {
     let returnedPlacemarks = await db.placemarkStore.getAllPlacemarks();
-    assert.equal(returnedPlacemarks.length, 4);
+    assert.equal(returnedPlacemarks.length, 3);
     await db.placemarkStore.deleteAllPlacemarks();
     returnedPlacemarks = await db.placemarkStore.getAllPlacemarks();
     assert.equal(returnedPlacemarks.length, 0);
   });
 
   test("get a placemark - success", async () => {
-    const placemark = await db.placemarkStore.addPlacemark(cork);
+    const placemark = await db.placemarkStore.addPlacemark(corkPlacemark);
     const returnedPlacemark = await db.placemarkStore.getPlacemarkById(placemark._id);
-    assert.equal(cork, placemark);
+    assertSubset(corkPlacemark, placemark);
   });
 
   test("delete One Placemark - success", async () => {

@@ -6,7 +6,7 @@ export const placemarkController = {
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
       const viewData = {
-        title: "Placemark",
+        name: "Placemark",
         placemark: placemark,
       };
       return h.view("placemark-view", viewData);
@@ -18,7 +18,7 @@ export const placemarkController = {
       payload: LandmarkSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
-        return h.view("placemark-view", { title: "Add landmark error", errors: error.details }).takeover().code(400);
+        return h.view("placemark-view", { name: "Add landmark error", errors: error.details }).takeover().code(400);
       },
     },
     handler: async function (request, h) {

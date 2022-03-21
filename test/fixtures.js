@@ -26,21 +26,46 @@ export const testUsers = [
   },
 ];
 
-export const cork = {
-  name: "Cork City 3rd level Colleges",
+export const corkPlacemark = {
+  name: "Cork Placemarks Collection",
+};
+
+export const ucc = {
+  name: "The Honan Chapel",
+  category: "UCC",
+  description: "Historic wedding venue on UCC's main campus",
+};
+
+export const dublinPlacemark = {
+  name: "Dublin Placemarks Collection",
 };
 
 export const testPlacemarks = [
   {
-    name: "University College of Cork",
+    name: "Dublin",
   },
   {
-    name: "Munster Technical University",
+    name: "Cork",
   },
   {
-    name: "Cork College Of Commerce",
+    name: "Waterford",
+  },
+];
+
+export const testLandmarks = [
+  {
+    name: "Phil Lynott Statue",
+    category: "Dublin Placemark",
+    description: "Visit the Legendary Irish musician on Grafton st, great for photos",
   },
   {
-    name: "St. Johns College Of Further Education",
+    name: "East Pier",
+    category: "Dublin Placemark",
+    description: " Great for a picturesque walk in the evening in Dun Laoghaire",
+  },
+  {
+    name: "Howth castle",
+    artist: "Dublin Placemark",
+    description: "Centuries-old property with extensive garden & grounds, hosting public tours & cooking classes. ",
   },
 ];
