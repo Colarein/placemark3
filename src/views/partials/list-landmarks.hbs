@@ -2,8 +2,8 @@
   <thead>
   <tr>
     <th>Name</th>
-    <th>Category</th>
     <th>Description</th>
+    <th>Location (Latitude & Longitude)</th>
     <th></th>
   </tr>
   </thead>
@@ -14,10 +14,13 @@
         {{name}}
       </td>
       <td>
-        {{category}}
+        {{description}}
       </td>
       <td>
-        {{description}}
+        {{latitude}}
+      </td>
+      <td>
+        {{longitude}}
       </td>
       <td>
         <a href="/placemark/{{../placemark._id}}/deletelandmark/{{_id}}" class="ui icon button">

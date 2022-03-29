@@ -37,7 +37,8 @@ export const landmarkMemStore = {
 
   async updateLandmark(landmark, updatedLandmark) {
     landmark.name = updatedLandmark.name;
-    landmark.category = updatedLandmark.category;
     landmark.description = updatedLandmark.description;
+    landmark.latitude = updatedLandmark.latitude;
+    landmark.longitude = updatedLandmark.longitude;
   },
 };
