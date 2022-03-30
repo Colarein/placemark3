@@ -45,13 +45,13 @@ export const dublinPlacemark = {
 
 export const testPlacemarks = [
   {
-    name: "Dublin",
+    name: "Waterford",
   },
   {
     name: "Cork",
   },
   {
-    name: "Waterford",
+    name: "Dublin",
   },
 ];
 
