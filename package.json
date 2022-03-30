@@ -12,6 +12,9 @@
     "testmodels": "./node_modules/mocha/bin/mocha --ui tdd test/models/**/*.js",
     "testapi": "./node_modules/mocha/bin/mocha --ui tdd test/api/**/*.js"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
