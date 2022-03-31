@@ -7,9 +7,13 @@ suite("Placemark API tests", () => {
   let user = null;
 
   setup(async () => {
-    await placemarkService.deleteAllPlacemarks();
+    placemarkService.clearAuth();
+    user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
+    await placemarkService.deleteAllPlaylists();
     await placemarkService.deleteAllUsers();
     user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
     ucc.userid = user._id;
   });
 

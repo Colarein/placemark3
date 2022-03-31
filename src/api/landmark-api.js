@@ -1,9 +1,13 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
+import { IdSpec, LandmarkSpec, LandmarkSpecPlus, LandmarkArraySpec } from "../models/joi-schemas.js";
+import { validationError } from "./logger.js";
 
 export const landmarkApi = {
   find: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const landmarks = await db.landmarkStore.getAllLandmarks();
@@ -12,10 +16,16 @@ export const landmarkApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    response: { schema: LandmarkArraySpec, failAction: validationError },
+    description: "Get all landmarkApi",
+    notes: "Returns all landmarkApi",
   },
 
   findOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
       try {
         const landmark = await db.landmarkStore.getLandmarkById(request.params.id);
@@ -24,13 +34,20 @@ export const landmarkApi = {
         }
         return landmark;
       } catch (err) {
-        return Boom.serverUnavailable("No landmark with this id");
+        return Boom.serverUnavailable("No track with this id");
       }
     },
+    tags: ["api"],
+    description: "Find a Landmark",
+    notes: "Returns a landmark",
+    validate: { params: { id: IdSpec }, failAction: validationError },
+    response: { schema: LandmarkSpecPlus, failAction: validationError },
   },
 
   create: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const landmark = await db.landmarkStore.addLandmark(request.params.id, request.payload);
@@ -42,10 +59,17 @@ export const landmarkApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Create a landmark",
+    notes: "Returns the newly created track",
+    validate: { payload: LandmarkSpec },
+    response: { schema: LandmarkSpecPlus, failAction: validationError },
   },
 
   deleteAll: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         await db.landmarkStore.deleteAllLandmarks();
@@ -54,15 +78,19 @@ export const landmarkApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Delete all landmarkApi",
   },
 
   deleteOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const landmark = await db.landmarkStore.getLandmarkById(request.params.id);
         if (!landmark) {
-          return Boom.notFound("No landmark with this id");
+          return Boom.notFound("No Landmark with this id");
         }
         await db.landmarkStore.deleteLandmark(landmark._id);
         return h.response().code(204);
@@ -70,5 +98,8 @@ export const landmarkApi = {
         return Boom.serverUnavailable("No Landmark with this id");
       }
     },
+    tags: ["api"],
+    description: "Delete a landmark",
+    validate: { params: { id: IdSpec }, failAction: validationError },
   },
 };
