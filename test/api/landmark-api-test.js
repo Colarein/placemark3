@@ -8,10 +8,14 @@ suite("Landmark API tests", () => {
   let waterford = null;
 
   setup(async () => {
-    await placemarkService.deleteAllPlacemarks();
-    await placemarkService.deleteAllUsers();
-    await placemarkService.deleteAllLandmarks();
+    placemarkService.clearAuth();
     user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
+    await placemarkService.deleteAllPlacemarks();
+    await placemarkService.deleteAllLandmarks();
+    await placemarkService.deleteAllUsers();
+    user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
     ucc.userid = user._id;
     waterford = await placemarkService.createPlacemark(ucc);
   });
