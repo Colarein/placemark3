@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { placemarkService } from "./placemark-service.js";
-import { maggie, ucc, testPlacemarks, testLandmarks, dublinPlacemark } from "../fixtures.js";
+import { maggie, maggieCredentials, ucc, testPlacemarks, testLandmarks, dublinPlacemark } from "../fixtures.js";
 
 suite("Landmark API tests", () => {
   let user = null;
@@ -10,12 +10,12 @@ suite("Landmark API tests", () => {
   setup(async () => {
     placemarkService.clearAuth();
     user = await placemarkService.createUser(maggie);
-    await placemarkService.authenticate(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     await placemarkService.deleteAllPlacemarks();
     await placemarkService.deleteAllLandmarks();
     await placemarkService.deleteAllUsers();
     user = await placemarkService.createUser(maggie);
-    await placemarkService.authenticate(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     ucc.userid = user._id;
     waterford = await placemarkService.createPlacemark(ucc);
   });
