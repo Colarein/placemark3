@@ -7,6 +7,7 @@ import { landmarkJsonStore } from "./json/landmark-json-store.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { landmarkMongoStore } from "./mongo/landmark-mongo-store.js";
 import { placemarkMongoStore } from "./mongo/placemark-mongo-store.js";
+import {reviewMongoStore} from "./mongo/review-mongo-store.js";
 import { connectMongo } from "./mongo/connect.js";
 
 export const db = {
@@ -25,6 +26,7 @@ export const db = {
         this.userStore = userMongoStore;
         this.placemarkStore = placemarkMongoStore;
         this.landmarkStore = landmarkMongoStore;
+        this.reviewStore = reviewMongoStore;
         connectMongo();
         break;
       default:

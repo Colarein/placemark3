@@ -1,5 +1,6 @@
 import { Placemark } from "./placemark.js";
 import { landmarkMongoStore } from "./landmark-mongo-store.js";
+import { reviewMongoStore } from "./review-mongo-store.js";
 
 export const placemarkMongoStore = {
   async getAllPlacemarks() {
