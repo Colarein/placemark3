@@ -4,4 +4,4 @@
 # It has a basic API and some relatively extensive Unit tests.
 # It was built originally from mem, then it was upgraded to json and finally it is on Mongo.
 # It has been deployed to the Glitch database and also works locally.
-# It has had structured development with tagged releases where development took place on branches where features were developed and then were committed to main.
+# It has been developed with tagged releases where development took place on branches where features were developed and then were committed to main.
