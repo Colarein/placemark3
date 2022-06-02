@@ -3,5 +3,13 @@
      <h2 class="name">
         {{name}}
      </h2>
+      <a href="/public/{{_id}}" class="button">
+      <span class="icon is-small">
+        <i class="fas fa-folder-open"></i>
+      </span>
+      </a>
+      <a href="/public/deletepublicplacemark/{{_id}}" class="button">
+          <i class="fas fa-trash"></i>
+      </a>
    </div>
 {{/each}}

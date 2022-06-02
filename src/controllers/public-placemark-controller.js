@@ -34,4 +34,12 @@ export const publicPlacemarkController = {
             return h.redirect("/public");
         },
     },
+
+    deletePublicPlacemark: {
+        handler: async function (request, h) {
+            const publicPlacemark = await db.publicPlacemarkStore.getPublicPlacemarkById(request.params.id);
+            await db.publicPlacemarkStore.deletePublicPlacemarkById(publicPlacemark._id);
+            return h.redirect("/public");
+        },
+    },
 };
