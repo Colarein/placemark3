@@ -6,15 +6,15 @@ export const reviewMongoStore = {
         return reviews;
     },
 
-    async addReview(playlistId, review) {
-        review.playlistid = playlistId;
+    async addReview(publicPlacemarkId, review) {
+        review.publicplacemarkid = publicPlacemarkId;
         const newReview = new Review(review);
         const reviewObj = await newReview.save();
         return this.getReviewById(reviewObj._id);
     },
 
-    async getReviewsByPlaylistId(id) {
-        const reviews = await Review.find({ playlistid: id }).lean();
+    async getReviewsByPublicPlacemarkId(id) {
+        const reviews = await Review.find({ publicplacemarkid: id }).lean();
         return reviews;
     },
 

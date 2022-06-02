@@ -59,3 +59,31 @@ export const PlacemarkSpecPlus = PlacemarkSpec.keys({
 }).label("PlacemarkPlus");
 
 export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("PlacemarkArray");
+export const ReviewSpec = Joi.object()
+    .keys({
+        name: Joi.string().required().example("ucc"),
+        description: Joi.string().required().example("Beach"),
+        publicplacemarkid: IdSpec,
+    })
+    .label("Review");
+
+export const ReviewSpecPlus = ReviewSpec.keys({
+    _id: IdSpec,
+    __v: Joi.number(),
+}).label("ReviewPlus");
+
+export const ReviewArraySpec = Joi.array().items(ReviewSpecPlus).label("ReviewArray");
+export const PublicPlacemarkSpec = Joi.object()
+    .keys({
+        name: Joi.string().required().example("public"),
+        userid: IdSpec,
+        reviews: ReviewArraySpec,
+    })
+    .label("PublicPlacemark");
+
+export const PublicPlacemarkSpecPlus = PublicPlacemarkSpec.keys({
+    _id: IdSpec,
+    __v: Joi.number(),
+}).label("PublicPlacemarkPlus");
+
+export const PublicPlacemarkArraySpec = Joi.array().items(PublicPlacemarkSpecPlus).label("PublicPlacemarkArray");

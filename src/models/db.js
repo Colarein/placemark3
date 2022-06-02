@@ -7,6 +7,7 @@ import { landmarkJsonStore } from "./json/landmark-json-store.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
 import { landmarkMongoStore } from "./mongo/landmark-mongo-store.js";
 import { placemarkMongoStore } from "./mongo/placemark-mongo-store.js";
+import { publicPlacemarkMongoStore } from "./mongo/public-placemark-mongo-store.js";
 import {reviewMongoStore} from "./mongo/review-mongo-store.js";
 import { connectMongo } from "./mongo/connect.js";
 
@@ -14,6 +15,7 @@ export const db = {
   userStore: null,
   placemarkStore: null,
   landmarkStore: null,
+  publicPlacemarkStore: null,
 
   init(storeType) {
     switch (storeType) {
@@ -25,6 +27,7 @@ export const db = {
       case "mongo":
         this.userStore = userMongoStore;
         this.placemarkStore = placemarkMongoStore;
+        this.publicPlacemarkStore = publicPlacemarkMongoStore;
         this.landmarkStore = landmarkMongoStore;
         this.reviewStore = reviewMongoStore;
         connectMongo();

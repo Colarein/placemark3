@@ -1,1 +1,14 @@
-<button onClick="addReview()" class="button">Add Review</button>
+<form class="box" action="/publicplacemark/{{publicplacemark._id}}/addreview" method="POST">
+    <label>Enter Review:</label>
+    <div class="field is-horizontal">
+        <div class="field-body">
+            <div class="field">
+                <input class="input" type="text" placeholder="Enter Name" name="name">
+            </div>
+            <div class="field">
+                <input class="input" type="text" placeholder="Enter description" name="description">
+            </div>
+        </div>
+    </div>
+    <button class="button is-primary">Add Review</button>
+</form>

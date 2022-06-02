@@ -23,10 +23,26 @@ export const seedData = {
     placemarks: {
         _model: "Placemark",
         ucc: {
-            name: "UCC Favourites",
+            name: "University College Cork",
             userid: "->users.bart"
         }
     },
+    publicPlacemarks: {
+        _model: "PublicPlacemark",
+        cit: {
+            name: "London",
+            userid: "->users.bart"
+        }
+    },
+    reviews: {
+        _model: "Review",
+        review_1: {
+            name: "Caroline Conway",
+            description: "Great spot to visit in CIT",
+            publicplacemarkid: "->publicPlacemarks.cit"
+        }
+    },
+
     landmarks: {
         _model : "Landmark",
         landmark_1 : {

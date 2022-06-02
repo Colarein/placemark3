@@ -59,6 +59,21 @@ export const testPlacemarks = [
   },
 ];
 
+export const testPublicPlacemarks = [
+  {
+    name: "Paris",
+  },
+  {
+    name: "Berlin",
+  },
+  {
+    name: "Amsterdam",
+  },
+];
+
+export const euPlacemark = {
+  name: "EU Placemarks Collection",
+};
 export const testLandmarks = [
   {
     name: "Phil Lynott Statue",
