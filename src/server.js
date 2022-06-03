@@ -8,11 +8,11 @@ import Joi from "joi";
 import HapiSwagger from "hapi-swagger";
 import { fileURLToPath } from "url";
 import Handlebars from "handlebars";
+import jwt from "hapi-auth-jwt2";
 import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { apiRoutes } from "./api-routes.js";
-import jwt from "hapi-auth-jwt2";
 import { validate } from "./api/jwt-utils.js";
 
 const __filename = fileURLToPath(import.meta.url);

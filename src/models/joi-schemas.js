@@ -11,14 +11,14 @@ export const JwtAuth = Joi.object()
 
 export const UserCredentialsSpec = Joi.object()
   .keys({
-    email: Joi.string().email().example("homer@simpson.com").required(),
-    password: Joi.string().example("secret").required(),
+      email: Joi.string().email().example("homer@simpson.com").required().regex(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/),
+      password: Joi.string().example("SoftwareSecurity@2022").regex(/^(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$/),
   })
   .label("UserCredentials");
 
 export const UserSpec = UserCredentialsSpec.keys({
-  firstName: Joi.string().example("Homer").required(),
-  lastName: Joi.string().example("Simpson").required(),
+  firstName: Joi.string().example("Homer").max(35).regex(/^[A-Z][a-z]{2,}$/),
+  lastName: Joi.string().example("Simpson").max(35).regex(/^[A-Z][a-z]{2,}$/),
 }).label("UserDetails");
 
 export const UserSpecPlus = UserSpec.keys({
