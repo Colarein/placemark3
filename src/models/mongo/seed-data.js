@@ -29,7 +29,7 @@ export const seedData = {
     },
     publicPlacemarks: {
         _model: "PublicPlacemark",
-        cit: {
+        london: {
             name: "London",
             userid: "->users.bart"
         }
@@ -38,8 +38,8 @@ export const seedData = {
         _model: "Review",
         review_1: {
             name: "Caroline Conway",
-            description: "Great spot to visit in CIT",
-            publicplacemarkid: "->publicPlacemarks.cit"
+            description: "Didn't see the queen, was not impressed",
+            publicplacemarkid: "->publicPlacemarks.london"
         }
     },
 

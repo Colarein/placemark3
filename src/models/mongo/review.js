@@ -3,11 +3,12 @@ import Mongoose from "mongoose";
 const { Schema } = Mongoose;
 
 const reviewSchema = new Schema({
-    title: String,
+    name: String,
     description: String,
-    placemarkid: {
+    // date etc
+    publicplacemarkid: {
         type: Schema.Types.ObjectId,
-        ref: "Placemark",
+        ref: "PublicPlacemark",
     },
 });
 

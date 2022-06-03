@@ -1,0 +1,27 @@
+<table class="table is-fullwidth">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+<!--        <th>Date Rating etc</th>-->
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each publicPlacemark.reviews}}
+        <tr>
+            <td>
+                {{name}}
+            </td>
+            <td>
+                {{description}}
+            </td>
+            <td>
+                <a href="/review/{{../publicPlacemark._id}}/deletereview/{{_id}}" class="ui icon button">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
