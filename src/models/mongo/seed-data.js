@@ -5,19 +5,19 @@ export const seedData = {
             firstName: "Homer",
             lastName: "Simpson",
             email: "homer@simpson.com",
-            password: "$2a$10$HnapEWWKQQ0.0Ft33nXxtuJ0fsmd9ywYswEzT4C.6Ul5y6cOU.UEa"
+            password: "$2a$10$0agNAmjprqmZQX9FWb1BAeDUy1Mt4dWgotA9BNu4sToND4EAc9J7W"
         },
         marge: {
             firstName: "Marge",
             lastName: "Simpson",
             email: "marge@simpson.com",
-            password: "$2a$10$D3TWK8MSAh63Lhk4gIFSJ.ekM368J88qJRUYSbuBfzffex6B0dFwK"
+            password: "$2a$10$HPmgLPOYYJDWtqkMr7O/Wew39gCdGnPf5lIffaac6bsJDlo6qBI7y"
         },
         bart: {
             firstName: "Bart",
             lastName: "Simpson",
             email: "bart@simpson.com",
-            password: "$2a$10$uqnPlgyVjBEOtcgMhn/WRO3FwW4T9gX36tTB4RqpGeB/LkCR3YQuO"
+            password: "$2a$10$CeqV6mQpGEJT7f6fdl1Jt.sN.jetrbMjPvSIRfsQQgyWX8Ubgbbee"
         }
     },
     placemarks: {
@@ -37,8 +37,11 @@ export const seedData = {
     reviews: {
         _model: "Review",
         review_1: {
-            name: "Caroline Conway",
-            description: "Didn't see the queen, was not impressed",
+            name: "Bring an Umbrella!!",
+            description: "Rained the whole trip. Didn't see the Queen. The pints were crap",
+            userid: "->users.bart",
+            user: "Simpson, Bart",
+            rating: "1",
             publicplacemarkid: "->publicPlacemarks.london"
         }
     },

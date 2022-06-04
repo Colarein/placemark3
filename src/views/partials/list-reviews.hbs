@@ -1,10 +1,11 @@
 <table class="table is-fullwidth">
     <thead>
     <tr>
-        <th>Name</th>
-        <th>Description</th>
+        <th>Review Name</th>
+        <th>Placemark Description</th>
 <!--        <th>Date Rating etc</th>-->
-        <th></th>
+        <th>Rating</th>
+        <th>Username</th>
     </tr>
     </thead>
     <tbody>
@@ -17,6 +18,13 @@
                 {{description}}
             </td>
             <td>
+            <td>
+                {{rating}}
+            </td>
+            <td>
+                {{user}}
+            </td>
+
                 <a href="/review/{{../publicPlacemark._id}}/deletereview/{{_id}}" class="ui icon button">
                     <i class="fas fa-trash"></i>
                 </a>

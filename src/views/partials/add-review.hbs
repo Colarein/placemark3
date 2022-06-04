@@ -3,10 +3,22 @@
     <div class="field is-horizontal">
         <div class="field-body">
             <div class="field">
-                <input class="input" type="text" placeholder="Enter Name" name="name">
+                <input class="input" type="text" placeholder="Review Title" name="name">
             </div>
             <div class="field">
-                <input class="input" type="text" placeholder="Enter description" name="description">
+                <input class="input" type="text" placeholder="Enter your review of this Placemark" name="description">
+            </div>
+            <div class="field">
+                <input class="input" type="number" placeholder="Rating(between 0-5)" name="rating">
+            </div>
+            <div class="field">
+                <div class="select">
+                    <select name="user">
+                        {{#each users }}
+                            <option> {{lastName}},{{firstName}}</option>
+                        {{/each}}
+                    </select>
+                </div>
             </div>
         </div>
     </div>

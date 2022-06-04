@@ -5,7 +5,9 @@ const { Schema } = Mongoose;
 const reviewSchema = new Schema({
     name: String,
     description: String,
-    // date etc
+    rating: Number,
+    user: String,
+
     publicplacemarkid: {
         type: Schema.Types.ObjectId,
         ref: "PublicPlacemark",

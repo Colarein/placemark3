@@ -46,11 +46,13 @@ export const publicPlacemarkController = {
     showReviews: {
         handler: async function (request, h) {
             const loggedInUser = request.auth.credentials;
+            const users = await db.userStore.getAllUsers();
             const publicPlacemark = await db.publicPlacemarkStore.getPublicPlacemarkById(request.params.id);
             const review = await db.reviewStore.getAllReviews();
             const viewData = {
                 title: "Review Dashboard",
                 user: loggedInUser,
+                users: users,
                 review: review,
                 publicPlacemark: publicPlacemark,
             };
@@ -71,9 +73,8 @@ export const publicPlacemarkController = {
             const newReview = {
                 name: request.payload.name,
                 description: request.payload.description,
-                // date
-                // rating/stars
-                // User - donation form
+                rating: request.payload.rating,
+                user: request.payload.user,
             };
             await db.reviewStore.addReview(publicPlacemark._id, newReview);
             return h.redirect(`/review/${publicPlacemark._id}`);
@@ -85,6 +86,23 @@ export const publicPlacemarkController = {
             const publicPlacemark = await db.publicPlacemarkStore.getPublicPlacemarkById(request.params.id);
             await db.reviewStore.deleteReview(request.params.reviewid);
             return h.redirect(`/review/${publicPlacemark._id}`);
+        },
+    },
+
+    averageReviewRating: {
+        handler: async function (request, h) {
+            const loggedInUser = request.auth.credentials;
+            const users = await db.userStore.getAllUsers();
+            const publicPlacemark = await db.publicPlacemarkStore.getPublicPlacemarkById(request.params.id);
+            const review = await db.reviewStore.getAllReviews();
+            const viewData = {
+                title: "Review Dashboard",
+                user: loggedInUser,
+                users: users,
+                review: review,
+                publicPlacemark: publicPlacemark,
+            };
+            return h.view("review-view", viewData);
         },
     },
 };
