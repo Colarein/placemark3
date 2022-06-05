@@ -3,11 +3,14 @@ import Mongoose from "mongoose";
 const { Schema } = Mongoose;
 
 const reviewSchema = new Schema({
-    title: String,
+    name: String,
     description: String,
-    placemarkid: {
+    rating: Number,
+    user: String,
+
+    publicplacemarkid: {
         type: Schema.Types.ObjectId,
-        ref: "Placemark",
+        ref: "PublicPlacemark",
     },
 });
 

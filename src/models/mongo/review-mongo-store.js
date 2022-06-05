@@ -41,6 +41,8 @@ export const reviewMongoStore = {
     async updateReview(review, updatedReview) {
         review.title = updatedReview.title;
         review.description = updatedReview.description;
+        review.rating = updatedReview.rating;
+        review.user = updatedReview.user;
         await review.save();
     },
 };

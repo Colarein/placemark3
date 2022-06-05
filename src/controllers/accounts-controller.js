@@ -1,5 +1,8 @@
 import { db } from "../models/db.js";
 import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
+import bcrypt from "bcrypt";          // Password Salting and Hashing
+
+const saltRounds = 10;                // Password Salting and Hashing
 
 export const accountsController = {
   index: {
@@ -26,6 +29,7 @@ export const accountsController = {
     },
     handler: async function (request, h) {
       const user = request.payload;
+      user.password = await bcrypt.hash(user.password, saltRounds);    // Password Salting and Hashing
       await db.userStore.addUser(user);
       return h.redirect("/");
     },
@@ -48,13 +52,34 @@ export const accountsController = {
     handler: async function (request, h) {
       const { email, password } = request.payload;
       const user = await db.userStore.getUserByEmail(email);
-      if (!user || user.password !== password) {
+      const passwordsMatch = await bcrypt.compare(password, user.password);    // Password Salting and Hashing
+      if (!user || !passwordsMatch) {                                          // Password Salting and Hashing
         return h.redirect("/");
       }
       request.cookieAuth.set({ id: user._id });
       return h.redirect("/dashboard");
     },
   },
+
+  loginoauth: {
+    auth: "github-oauth",
+    handler: async function (request, h) {
+      if (request.auth.isAuthenticated) {
+        console.log(request.auth.credentials)
+        const rawName = request.auth.credentials.profile.displayName.split(" ");
+        const newUser = {
+          firstName: rawName[0],
+          lastName: rawName[1],
+          email: request.auth.credentials.profile.email
+        };
+        const user = await db.userStore.addUser(newUser);
+        request.cookieAuth.set({ id: user._id });
+        return h.redirect("/dashboard");
+      }
+      return h.redirect("/");
+    },
+  },
+
   logout: {
     handler: function (request, h) {
       request.cookieAuth.clear();

@@ -74,6 +74,20 @@ export const testPublicPlacemarks = [
 export const euPlacemark = {
   name: "EU Placemarks Collection",
 };
+export const testReviews = [
+  {
+    name: "Giants Causeway",
+    description: "I thought it would be bigger",
+  },
+  {
+    name: "Blarney Stone",
+    description: "A big gross rock",
+  },
+  {
+    name: "Rock of Cashel",
+    description: "It wasn't actually a Rock",
+  },
+];
 export const testLandmarks = [
   {
     name: "Phil Lynott Statue",

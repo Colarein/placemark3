@@ -1,0 +1,18 @@
+<table class="table is-fullwidth">
+    <thead>
+    <th>Placemark</th>
+    <th>Rating</th>
+    <th>User</th>
+    <th>Date</th>
+    </thead>
+    <tbody>
+    {{#each reviews}}
+        <tr>
+            <td>{{publicPlacemark.name}}</td>
+            <td>{{rating}}</td>
+            <td>{{user}} </td>
+            <td></td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

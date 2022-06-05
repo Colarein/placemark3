@@ -5,19 +5,19 @@ export const seedData = {
             firstName: "Homer",
             lastName: "Simpson",
             email: "homer@simpson.com",
-            password: "secret"
+            password: "$2a$10$0agNAmjprqmZQX9FWb1BAeDUy1Mt4dWgotA9BNu4sToND4EAc9J7W"
         },
         marge: {
             firstName: "Marge",
             lastName: "Simpson",
             email: "marge@simpson.com",
-            password: "secret"
+            password: "$2a$10$HPmgLPOYYJDWtqkMr7O/Wew39gCdGnPf5lIffaac6bsJDlo6qBI7y"
         },
         bart: {
             firstName: "Bart",
             lastName: "Simpson",
             email: "bart@simpson.com",
-            password: "secret"
+            password: "$2a$10$CeqV6mQpGEJT7f6fdl1Jt.sN.jetrbMjPvSIRfsQQgyWX8Ubgbbee"
         }
     },
     placemarks: {
@@ -29,7 +29,7 @@ export const seedData = {
     },
     publicPlacemarks: {
         _model: "PublicPlacemark",
-        cit: {
+        london: {
             name: "London",
             userid: "->users.bart"
         }
@@ -37,9 +37,12 @@ export const seedData = {
     reviews: {
         _model: "Review",
         review_1: {
-            name: "Caroline Conway",
-            description: "Great spot to visit in CIT",
-            publicplacemarkid: "->publicPlacemarks.cit"
+            name: "Bring an Umbrella!!",
+            description: "Rained the whole trip. Didn't see the Queen. The pints were crap",
+            userid: "->users.bart",
+            user: "Simpson, Bart",
+            rating: "1",
+            publicplacemarkid: "->publicPlacemarks.london"
         }
     },
 
