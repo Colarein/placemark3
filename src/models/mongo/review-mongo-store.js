@@ -38,6 +38,15 @@ export const reviewMongoStore = {
         await Review.deleteMany({});
     },
 
+    getAverageReviewRating(publicPlacemark) {
+        let totalReviewRating = 0;
+        for (let i = 0; i < publicPlacemark.reviews.length; i++) {
+            const review = publicPlacemark.reviews[i];
+            totalReviewRating += review.rating
+        }
+        return totalReviewRating / (publicPlacemark.reviews.length);
+    },
+
     async updateReview(review, updatedReview) {
         review.title = updatedReview.title;
         review.description = updatedReview.description;

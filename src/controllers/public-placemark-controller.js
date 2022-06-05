@@ -49,12 +49,14 @@ export const publicPlacemarkController = {
             const users = await db.userStore.getAllUsers();
             const publicPlacemark = await db.publicPlacemarkStore.getPublicPlacemarkById(request.params.id);
             const review = await db.reviewStore.getAllReviews();
+            const averageReviewRating = db.reviewStore.getAverageReviewRating(publicPlacemark)
             const viewData = {
                 title: "Review Dashboard",
                 user: loggedInUser,
                 users: users,
                 review: review,
                 publicPlacemark: publicPlacemark,
+                averageReviewRating: averageReviewRating,
             };
             return h.view("review-view", viewData);
         },
@@ -86,23 +88,6 @@ export const publicPlacemarkController = {
             const publicPlacemark = await db.publicPlacemarkStore.getPublicPlacemarkById(request.params.id);
             await db.reviewStore.deleteReview(request.params.reviewid);
             return h.redirect(`/review/${publicPlacemark._id}`);
-        },
-    },
-
-    averageReviewRating: {
-        handler: async function (request, h) {
-            const loggedInUser = request.auth.credentials;
-            const users = await db.userStore.getAllUsers();
-            const publicPlacemark = await db.publicPlacemarkStore.getPublicPlacemarkById(request.params.id);
-            const review = await db.reviewStore.getAllReviews();
-            const viewData = {
-                title: "Review Dashboard",
-                user: loggedInUser,
-                users: users,
-                review: review,
-                publicPlacemark: publicPlacemark,
-            };
-            return h.view("review-view", viewData);
         },
     },
 };
